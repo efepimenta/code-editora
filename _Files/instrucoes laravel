@@ -1,0 +1,28 @@
+coisas legais
+	https://laravelcollective.com/ - coisas removidas do projeto oficial
+	https://github.com/barryvdh/laravel-ide-helper - adiciona o autocomplete nas ides
+
+criar esqueleto de projeto
+	composer create-project --prefer-dist laravel/laravel=5.3.* code-editora
+criar rotas de auth
+	php artisan make:auth
+criar as migracoes
+	php artisan migrate
+criar uma seeder
+	php artisan make:seeder UsersTableSeeder
+		isso cria a classe na pasta seeds, em seguida devemos configurar essa seed (factory(\App\User::class, 1)->create([
+		        'name' => 'Fabio Pimenta',
+		        'email' => 'admin@editora.com',
+		        'password' => bcrypt('secret'),
+		        'remember_token' => str_random(10)
+		    ]
+		);), na sequencia habilitar a chamada em DatabaseSeeder e rodar {  php artisan db:seed  }
+criar um model
+	php artisan make:model Category -m -c (-m cria o model, -c cria o controller)
+criar um controller
+	php artisan make:controller CategoriesController { --resource ja coloca os metodos }
+criar a seeder (pra cada model)
+	php artisan make:seeder CategoriesTableSeeder
+		seguir os passos de UsersTableSeeder acima
+gerar todas as seeds
+	php artisan migrate:refresh --seed
